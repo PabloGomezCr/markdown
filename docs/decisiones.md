@@ -10,7 +10,7 @@
 
 ## ADR-002: aplicación de una sola página
 
-- **Estado:** aceptada
+- **Estado:** reemplazada por ADR-006
 - **Contexto:** los cuatro módulos comparten navegación y sesión simulada.
 - **Decisión:** alternar secciones del documento sin recargar.
 - **Consecuencia:** interacción rápida; no existen rutas enlazables ni historial por módulo.
@@ -35,3 +35,11 @@
 - **Contexto:** una institución pública necesita claridad, confianza y accesibilidad.
 - **Decisión:** usar verde profundo, fondos cálidos, naranja como acento y tipografía del sistema con títulos serif.
 - **Consecuencia:** identidad diferenciada sin descargar recursos externos.
+
+## ADR-006: páginas separadas para acceso, inicio y usuarios
+
+- **Estado:** aceptada
+- **Fecha:** 2026-08-12
+- **Contexto:** la institución solicita archivos HTML independientes para las secciones asignadas de Inicio y Usuarios.
+- **Decisión:** mantener `index.html` exclusivamente como acceso, usar `inicio.html` para el panel y `usuarios.html` para la gestión administrativa. La sesión simulada conserva el perfil en `localStorage` para aplicar navegación y protección por rol entre documentos.
+- **Consecuencia:** cada sección asignada dispone de una ruta directa; la autorización continúa siendo demostrativa y depende del navegador.
