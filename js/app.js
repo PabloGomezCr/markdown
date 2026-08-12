@@ -23,7 +23,7 @@ const store = {
   get(key){ try{return JSON.parse(localStorage.getItem(`aulaclara-${key}`)) || seed[key]}catch{return seed[key]} },
   set(key,value){localStorage.setItem(`aulaclara-${key}`,JSON.stringify(value))}
 };
-let users=store.get('users'), grades=store.get('grades'), posts=store.get('posts'), role='admin';
+let users=store.get('users'), posts=store.get('posts'), role='admin';
 const profiles={
   admin:{name:'Ana Rodríguez',label:'Administración',initials:'AR',copy:'Este es el resumen de la institución para hoy.'},
   teacher:{name:'Luis Vargas',label:'Docente',initials:'LV',copy:'Tus grupos, actividades y avisos para hoy.'},
@@ -41,8 +41,7 @@ function go(page){
 }
 function applyRole(){
   const p=profiles[role]; $('#user-name').textContent=p.name;$('#user-role').textContent=p.label;$('#avatar').textContent=p.initials;$('#first-name').textContent=p.name.split(' ')[0];$('#welcome-copy').textContent=p.copy;
-  $$('.role-admin').forEach(x=>x.hidden=role!=='admin'); $$('.teacher-admin').forEach(x=>x.hidden=role==='family');
-  if(role==='family') $('#academic-copy').textContent='Consulta tus calificaciones y asistencia.'; else $('#academic-copy').textContent='Calificaciones y asistencia del grupo.';
+  $$('.role-admin').forEach(x=>x.hidden=role!=='admin');
   renderAll();
 }
 function renderStats(){
@@ -60,31 +59,18 @@ function renderUsers(){
   const filtered=users.filter(u=>(u.name.toLowerCase().includes(q)||u.email.toLowerCase().includes(q))&&(f==='all'||u.role===f));
   $('#users-body').innerHTML=filtered.map(u=>`<tr><td><div class="person"><span class="person-avatar">${initials(u.name)}</span><div><strong>${u.name}</strong><small>${u.email}</small></div></div></td><td>${u.role}</td><td><span class="status ${u.active?'success':'inactive'}">${u.active?'Activo':'Inactivo'}</span></td><td><button class="table-action edit-user" data-id="${u.id}">Editar</button></td></tr>`).join('')||'<tr><td colspan="4">No hay resultados.</td></tr>';
 }
-function renderGrades(){
-  const visible=role==='family'?grades.filter(g=>g.name==='Sofía Mora'):grades;
-  $('#grades-body').innerHTML=visible.map((g,i)=>{const avg=Math.round((+g.task + +g.project + +g.exam)/3);return `<tr><td><strong>${g.name}</strong></td>${['task','project','exam'].map(k=>`<td><input class="grade-input" type="number" min="0" max="100" value="${g[k]}" data-index="${grades.indexOf(g)}" data-key="${k}" aria-label="${k} de ${g.name}" ${role==='family'?'disabled':''}></td>`).join('')}<td><strong>${avg}</strong></td><td>${g.attendance}%</td></tr>`}).join('');
-}
-function renderPosts(){ $('#posts-list').innerHTML=posts.map(p=>`<article class="post-card ${p.important?'important':''}"><p class="eyebrow">${p.important?'Importante':'Comunicado'}</p><h2>${p.title}</h2><p>${p.body}</p><footer><span>${p.author}</span><time>${p.date}</time></footer></article>`).join('') }
-function renderAll(){renderStats();renderHome();renderUsers();renderGrades();renderPosts()}
+function renderAll(){renderStats();renderHome();renderUsers()}
 
 function userModal(user){
   $('#modal-eyebrow').textContent=user?'Editar registro':'Nuevo registro';$('#modal-title').textContent=user?'Editar persona':'Agregar persona';
   $('#modal-fields').innerHTML=`<label for="m-name">Nombre completo</label><input id="m-name" required value="${user?.name||''}"><label for="m-email">Correo institucional</label><input id="m-email" type="email" required value="${user?.email||''}"><label for="m-role">Perfil</label><select id="m-role"><option ${user?.role==='Administración'?'selected':''}>Administración</option><option ${user?.role==='Docente'?'selected':''}>Docente</option><option ${user?.role==='Estudiante / familia'?'selected':''}>Estudiante / familia</option></select><label><input id="m-active" type="checkbox" style="width:auto" ${user?.active!==false?'checked':''}> Cuenta activa</label>`;
   $('#modal-submit').onclick=(e)=>{e.preventDefault();const data={id:user?.id||Date.now(),name:$('#m-name').value.trim(),email:$('#m-email').value.trim(),role:$('#m-role').value,active:$('#m-active').checked};if(!data.name||!data.email)return;if(user) users=users.map(u=>u.id===user.id?data:u);else users.push(data);store.set('users',users);renderUsers();$('#modal').close();showToast('Usuario guardado correctamente')};$('#modal').showModal();
 }
-function postModal(){
-  $('#modal-eyebrow').textContent='Publicación oficial';$('#modal-title').textContent='Nuevo comunicado';
-  $('#modal-fields').innerHTML='<label for="m-title">Título</label><input id="m-title" required><label for="m-body">Mensaje</label><textarea id="m-body" required></textarea><label><input id="m-important" type="checkbox" style="width:auto"> Marcar como importante</label>';
-  $('#modal-submit').onclick=(e)=>{e.preventDefault();if(!$('#m-title').value.trim()||!$('#m-body').value.trim())return;posts.unshift({id:Date.now(),title:$('#m-title').value.trim(),body:$('#m-body').value.trim(),important:$('#m-important').checked,date:new Intl.DateTimeFormat('es-CR',{day:'2-digit',month:'short',year:'numeric'}).format(new Date()).toUpperCase(),author:profiles[role].label});store.set('posts',posts);renderPosts();renderHome();$('#modal').close();showToast('Comunicado publicado')};$('#modal').showModal();
-}
-
-$('#login-form').addEventListener('submit',e=>{e.preventDefault();role=$('#role-select').value;$('#login-view').hidden=true;$('#app-view').hidden=false;applyRole();go('inicio')});
+$('#login-form').addEventListener('submit',e=>{e.preventDefault();role=$('#role-select').value;sessionStorage.setItem('aulaclara-role',role);$('#login-view').hidden=true;$('#app-view').hidden=false;applyRole();go(location.hash==='#usuarios'&&role==='admin'?'usuarios':'inicio')});
 $('#toggle-password').onclick=()=>{const p=$('#password');p.type=p.type==='password'?'text':'password';$('#toggle-password').setAttribute('aria-label',p.type==='password'?'Mostrar contraseña':'Ocultar contraseña')};
 $('#logout').onclick=()=>{$('#app-view').hidden=true;$('#login-view').hidden=false};
 $('#menu-button').onclick=()=>{const open=$('#sidebar').classList.toggle('open');$('#menu-button').setAttribute('aria-expanded',String(open))};
-$$('.nav-item').forEach(b=>b.onclick=()=>go(b.dataset.page));$$('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+$$('.nav-item[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));
 $('#user-search').oninput=renderUsers;$('#role-filter').onchange=renderUsers;$('#new-user').onclick=()=>userModal();
 $('#users-body').onclick=e=>{const b=e.target.closest('.edit-user');if(b)userModal(users.find(u=>u.id===+b.dataset.id))};
-$('#grades-body').oninput=e=>{if(e.target.matches('.grade-input')){grades[+e.target.dataset.index][e.target.dataset.key]=Math.max(0,Math.min(100,+e.target.value));renderGrades()}};
-$('#save-grades').onclick=()=>{store.set('grades',grades);showToast('Calificaciones guardadas')};$('#new-post').onclick=postModal;
 renderAll();

@@ -2,15 +2,17 @@
 
 ## Visión general
 
-Aula Clara es una aplicación web estática de una sola página. El navegador carga tres archivos y mantiene los cambios de demostración en almacenamiento local.
+Aula Clara es una aplicación web estática multipágina. El inicio y la gestión de usuarios viven en `index.html`; los módulos académico y de comunicados tienen documentos y scripts independientes. El navegador mantiene los cambios de demostración en almacenamiento local.
 
 ```text
 ┌──────────────────────────────────────────┐
 │ Navegador                                │
 │                                          │
-│ index.html  → estructura y accesibilidad │
-│ styles.css → presentación responsive     │
-│ app.js     → estado, roles e interacción │
+│ index.html       → inicio y usuarios      │
+│ academico.html   → notas y asistencia     │
+│ comunicados.html → avisos oficiales       │
+│ styles.css       → presentación común     │
+│ app.js y scripts por página → interacción │
 │        ↓                                 │
 │ localStorage → users, grades, posts      │
 └──────────────────────────────────────────┘
@@ -20,9 +22,11 @@ Aula Clara es una aplicación web estática de una sola página. El navegador ca
 
 | Archivo | Responsabilidad |
 |---|---|
-| `index.html` | Vistas de acceso, panel, usuarios, académico, comunicados y modal |
+| `index.html` | Vistas de acceso, panel de inicio, gestión de usuarios y su modal |
 | `css/styles.css` | Sistema visual, layout, estados, responsive y preferencias de movimiento |
-| `js/app.js` | Datos semilla, navegación, permisos, renderizado, formularios y persistencia |
+| `js/app.js` | Acceso, panel, usuarios y navegación principal |
+| `academico.html` y `js/academico.js` | Consulta, edición y persistencia de calificaciones |
+| `comunicados.html` y `js/comunicados.js` | Consulta, creación y persistencia de comunicados |
 
 ## Modelo de datos
 

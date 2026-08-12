@@ -36,8 +36,12 @@ Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualqui
 │   ├── decisiones.md
 │   ├── memoria.md
 │   └── requerimientos.md
+├── academico.html
+├── comunicados.html
 ├── index.html
 └── js/
+    ├── academico.js
+    ├── comunicados.js
     └── app.js
 ```
 

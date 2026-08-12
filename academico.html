@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Módulo académico de Aula Clara"><title>Académico | Aula Clara</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo"><span class="brand-mark">AV</span><div><strong>Aula Clara</strong><small>Valle Verde</small></div></div>
+      <nav aria-label="Navegación principal"><a class="nav-item" href="index.html"><span>⌂</span> Inicio</a><a class="nav-item role-admin" href="index.html#usuarios"><span>♙</span> Usuarios</a><a class="nav-item active" href="academico.html" aria-current="page"><span>▤</span> Académico</a><a class="nav-item" href="comunicados.html"><span>◇</span> Comunicados <b class="badge">3</b></a></nav>
+      <div class="sidebar-foot"><small>Centro educativo público</small><strong>Curso lectivo 2026</strong><span>Versión 1.1.0</span></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><button id="menu-button" class="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button><div class="crumb"><span>Intranet</span> / <strong>Académico</strong></div><div class="top-actions"><div class="user-chip"><span id="avatar">AR</span><div><strong id="user-name">Ana Rodríguez</strong><small id="user-role">Administración</small></div></div><button id="logout" class="logout" title="Cerrar sesión" aria-label="Cerrar sesión">↪</button></div></header>
+      <main id="contenido" tabindex="-1"><section class="page active">
+        <div class="page-title"><div><p class="eyebrow">Seguimiento</p><h1>Módulo académico</h1><p id="academic-copy">Calificaciones y asistencia del curso.</p></div><button class="primary teacher-admin" id="save-grades">Guardar cambios</button></div>
+        <div class="subject-tabs" aria-label="Asignaturas"><button class="active">Matemática 8°A</button><button>Español 8°A</button><button>Ciencias 8°A</button></div>
+        <section class="panel table-panel"><div class="section-head"><div><p class="eyebrow">II Trimestre</p><h2>Registro de calificaciones</h2></div><span class="status success">Al día</span></div><div class="table-wrap"><table><thead><tr><th>Estudiante</th><th>Tarea 1</th><th>Proyecto</th><th>Examen</th><th>Promedio</th><th>Asistencia</th></tr></thead><tbody id="grades-body"></tbody></table></div></section>
+      </section></main>
+    </div>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div><script src="js/academico.js"></script>
+</body></html>

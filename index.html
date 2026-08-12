@@ -47,8 +47,8 @@
       <nav aria-label="Navegación principal">
         <button class="nav-item active" data-page="inicio"><span>⌂</span> Inicio</button>
         <button class="nav-item role-admin" data-page="usuarios"><span>♙</span> Usuarios</button>
-        <button class="nav-item" data-page="academico"><span>▤</span> Académico</button>
-        <button class="nav-item" data-page="comunicados"><span>◇</span> Comunicados <b class="badge">3</b></button>
+        <a class="nav-item" href="academico.html"><span>▤</span> Académico</a>
+        <a class="nav-item" href="comunicados.html"><span>◇</span> Comunicados <b class="badge">3</b></a>
       </nav>
       <div class="sidebar-foot"><small>Centro educativo público</small><strong>Curso lectivo 2026</strong><span>Versión 1.0.0</span></div>
     </aside>
@@ -68,8 +68,8 @@
           </div>
           <div class="stats" id="stats"></div>
           <div class="dashboard-grid">
-            <section class="panel"><div class="section-head"><div><p class="eyebrow">Esta semana</p><h2>Próximas actividades</h2></div><button class="text-button" data-go="academico">Ver calendario →</button></div><div id="activities"></div></section>
-            <section class="panel"><div class="section-head"><div><p class="eyebrow">Centro educativo</p><h2>Comunicados recientes</h2></div><button class="text-button" data-go="comunicados">Ver todos →</button></div><div id="recent-posts"></div></section>
+            <section class="panel"><div class="section-head"><div><p class="eyebrow">Esta semana</p><h2>Próximas actividades</h2></div><a class="text-button" href="academico.html">Ver calendario →</a></div><div id="activities"></div></section>
+            <section class="panel"><div class="section-head"><div><p class="eyebrow">Centro educativo</p><h2>Comunicados recientes</h2></div><a class="text-button" href="comunicados.html">Ver todos →</a></div><div id="recent-posts"></div></section>
           </div>
         </section>
 
@@ -78,16 +78,6 @@
           <section class="panel table-panel"><div class="filters"><label class="search"><span>⌕</span><input id="user-search" type="search" placeholder="Buscar por nombre o correo" aria-label="Buscar usuarios"></label><select id="role-filter" aria-label="Filtrar por perfil"><option value="all">Todos los perfiles</option><option value="Administración">Administración</option><option value="Docente">Docente</option><option value="Estudiante / familia">Estudiante / familia</option></select></div><div class="table-wrap"><table><thead><tr><th>Persona</th><th>Perfil</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="users-body"></tbody></table></div></section>
         </section>
 
-        <section id="page-academico" class="page">
-          <div class="page-title"><div><p class="eyebrow">Seguimiento</p><h1>Módulo académico</h1><p id="academic-copy">Calificaciones y asistencia del curso.</p></div><button class="primary teacher-admin" id="save-grades">Guardar cambios</button></div>
-          <div class="subject-tabs"><button class="active">Matemática 8°A</button><button>Español 8°A</button><button>Ciencias 8°A</button></div>
-          <section class="panel table-panel"><div class="section-head"><div><p class="eyebrow">II Trimestre</p><h2>Registro de calificaciones</h2></div><span class="status success">Al día</span></div><div class="table-wrap"><table><thead><tr><th>Estudiante</th><th>Tarea 1</th><th>Proyecto</th><th>Examen</th><th>Promedio</th><th>Asistencia</th></tr></thead><tbody id="grades-body"></tbody></table></div></section>
-        </section>
-
-        <section id="page-comunicados" class="page">
-          <div class="page-title"><div><p class="eyebrow">Información oficial</p><h1>Tablón de comunicados</h1><p>Avisos y circulares de la institución.</p></div><button class="primary teacher-admin" id="new-post">+ Nuevo comunicado</button></div>
-          <div id="posts-list" class="posts-grid"></div>
-        </section>
       </main>
     </div>
   </div>
