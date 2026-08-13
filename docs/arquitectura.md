@@ -2,8 +2,7 @@
 
 ## Visión general
 
-Aula Clara es una aplicación web estática multipágina. El inicio y la gestión de usuarios viven en `index.html`; los módulos académico y de comunicados tienen documentos y scripts independientes. El navegador mantiene los cambios de demostración en almacenamiento local.
-Aula Clara es una aplicación web estática con páginas separadas para el acceso, Inicio y Usuarios. El navegador comparte la presentación y el comportamiento entre documentos, y mantiene la sesión y los cambios de demostración en almacenamiento local.
+Aula Clara es una aplicación web estática con páginas separadas para el acceso, Inicio, Usuarios, Académico y Comunicados. El navegador comparte la presentación entre documentos, usa scripts por módulo y mantiene localmente la sesión y los cambios de demostración.
 
 ```text
 ┌──────────────────────────────────────────┐
@@ -17,6 +16,8 @@ Aula Clara es una aplicación web estática con páginas separadas para el acces
 │ index.html    → acceso simulado          │
 │ inicio.html   → panel por perfil         │
 │ usuarios.html → gestión administrativa  │
+│ academico.html → seguimiento académico  │
+│ comunicados.html → tablón institucional │
 │ styles.css    → presentación responsive │
 │ app.js        → sesión, roles e interfaz│
 │        ↓                                 │
@@ -36,6 +37,8 @@ Aula Clara es una aplicación web estática con páginas separadas para el acces
 | `index.html` | Formulario de acceso simulado |
 | `inicio.html` | Panel e información de Inicio según el perfil activo |
 | `usuarios.html` | Formulario, filtros, tabla y modal de gestión de usuarios |
+| `academico.html` | Calificaciones y asistencia organizadas por asignatura |
+| `comunicados.html` | Consulta y publicación de comunicados según el perfil |
 | `css/styles.css` | Sistema visual, layout, estados, responsive y preferencias de movimiento |
 | `js/app.js` | Datos semilla, sesión simulada, permisos, renderizado, formularios y persistencia |
 
@@ -55,4 +58,4 @@ Para producción, la autorización debe trasladarse al servidor y comprobarse en
 
 ## Persistencia
 
-Las claves de datos existentes se conservan en `localStorage`; el perfil activo usa `aulaclara-session`. Si los datos de Usuarios o Comunicados no existen, la aplicación utiliza datos semilla. Esta decisión elimina infraestructura para la demostración y hace que la sesión y los cambios sean locales al dispositivo y navegador.
+Las claves de datos existentes se conservan en `localStorage`; el perfil activo usa la clave `aulaclara-session` en `sessionStorage`. Si los datos de Usuarios, Académico o Comunicados no existen, la aplicación utiliza datos semilla. Esta decisión elimina infraestructura para la demostración y hace que la sesión y los cambios sean locales al dispositivo y navegador.

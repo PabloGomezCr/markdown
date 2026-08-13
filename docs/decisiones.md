@@ -41,5 +41,5 @@
 - **Estado:** aceptada
 - **Fecha:** 2026-08-12
 - **Contexto:** la institución solicita archivos HTML independientes para las secciones asignadas de Inicio y Usuarios.
-- **Decisión:** mantener `index.html` exclusivamente como acceso, usar `inicio.html` para el panel y `usuarios.html` para la gestión administrativa. La sesión simulada conserva el perfil en `localStorage` para aplicar navegación y protección por rol entre documentos.
+- **Decisión:** mantener `index.html` exclusivamente como acceso y una página independiente para cada módulo. La sesión simulada conserva el perfil con la clave `aulaclara-session` en `sessionStorage` para aplicar navegación y protección por rol entre documentos.
 - **Consecuencia:** cada sección asignada dispone de una ruta directa; la autorización continúa siendo demostrativa y depende del navegador.

@@ -10,7 +10,7 @@ No requiere instalación ni dependencias. Se puede abrir `index.html` directamen
 python3 -m http.server 8080
 ```
 
-Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualquier contraseña. El acceso redirige a `inicio.html`; administración también puede abrir `usuarios.html`. Los cambios se guardan únicamente en `localStorage` del navegador.
+Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualquier contraseña. El acceso redirige a `inicio.html`, desde donde se puede navegar a Académico y Comunicados; administración también puede abrir Usuarios. Los datos se guardan en `localStorage` y el perfil activo se conserva durante la pestaña mediante `sessionStorage`.
 
 ## Funciones incluidas
 
