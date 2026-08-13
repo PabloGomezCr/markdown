@@ -2,6 +2,19 @@
 
 Todos los cambios relevantes de este proyecto se documentan aquí. El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el proyecto usa [versionado semántico](https://semver.org/lang/es/).
 
+## [Sin publicar]
+
+### Corregido
+
+- Se conectó la navegación entre Inicio, Usuarios, Académico y Comunicados después de integrar sus páginas independientes.
+- Se unificó la clave de sesión usada por todos los módulos y se redirigen al acceso las visitas sin una sesión válida.
+- Se eliminó de `index.html` el contenido residual de la antigua aplicación de una sola página.
+
+### Cambiado
+
+- Se separaron el acceso, el panel de inicio y la gestión de usuarios en `index.html`, `inicio.html` y `usuarios.html`.
+- Se conservó el perfil activo entre páginas y se restringió el acceso directo a Usuarios al rol de administración.
+
 ## [1.2.0] — 2026-08-13
 
 ### Agregado
@@ -21,13 +34,6 @@ Todos los cambios relevantes de este proyecto se documentan aquí. El formato se
 - El módulo académico ahora vive en `academico.html` y usa `js/academico.js`.
 - El tablón de comunicados ahora vive en `comunicados.html` y usa `js/comunicados.js`.
 - La navegación conserva el perfil seleccionado mediante `sessionStorage`.
-## [Sin publicar]
-
-### Cambiado
-
-- Se separaron el acceso, el panel de inicio y la gestión de usuarios en `index.html`, `inicio.html` y `usuarios.html`.
-- Se conservó el perfil activo entre páginas y se restringió el acceso directo a usuarios al rol de administración.
-
 ## [1.0.0] — 2026-08-12
 
 ### Agregado

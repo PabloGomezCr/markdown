@@ -8,8 +8,12 @@ const profiles = {
   teacher:{name:'Luis Vargas',label:'Docente',initials:'LV'},
   family:{name:'Sofía Mora',label:'Estudiante / familia',initials:'SM'}
 };
-const role = sessionStorage.getItem('aulaclara-role') || 'admin';
-const profile = profiles[role] || profiles.admin;
+const role = sessionStorage.getItem('aulaclara-session');
+if (!profiles[role]) {
+  document.body.hidden = true;
+  location.replace('index.html');
+}
+const profile = profiles[role] || {name:'',label:'',initials:''};
 let posts;
 try { posts = JSON.parse(localStorage.getItem('aulaclara-posts')) || defaultPosts; } catch { posts = defaultPosts; }
 const $ = selector => document.querySelector(selector);
@@ -48,7 +52,7 @@ $('#menu-button').addEventListener('click', () => {
   $('#menu-button').setAttribute('aria-expanded', String(open));
 });
 $('#logout').addEventListener('click', () => {
-  sessionStorage.removeItem('aulaclara-role');
+  sessionStorage.removeItem('aulaclara-session');
   location.href = 'index.html';
 });
 renderPosts();

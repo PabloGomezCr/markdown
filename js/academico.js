@@ -26,8 +26,12 @@ const profiles = {
   teacher:{name:'Luis Vargas',label:'Docente',initials:'LV'},
   family:{name:'Sofía Mora',label:'Estudiante / familia',initials:'SM'}
 };
-const role = sessionStorage.getItem('aulaclara-role') || 'admin';
-const profile = profiles[role] || profiles.admin;
+const role = sessionStorage.getItem('aulaclara-session');
+if (!profiles[role]) {
+  document.body.hidden = true;
+  location.replace('index.html');
+}
+const profile = profiles[role] || {name:'',label:'',initials:''};
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 let activeSubject = 'matematica';
@@ -137,7 +141,7 @@ $('#menu-button').addEventListener('click', () => {
   $('#menu-button').setAttribute('aria-expanded', String(open));
 });
 $('#logout').addEventListener('click', () => {
-  sessionStorage.removeItem('aulaclara-role');
+  sessionStorage.removeItem('aulaclara-session');
   location.href = 'index.html';
 });
 window.addEventListener('beforeunload', event => {
