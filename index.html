@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Prototipo de intranet para la Escuela Pública Valle Verde">
-  <title>Aula Clara | Intranet escolar</title>
+  <meta name="description" content="Acceso a la intranet de la Escuela Pública Valle Verde">
+  <title>Ingresar | Aula Clara</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body data-page="login">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <section id="login-view" class="login-shell" aria-labelledby="login-title">
-    <div class="login-brand">
+  <main id="contenido" class="login-shell" tabindex="-1">
+    <section class="login-brand" aria-labelledby="login-title">
       <span class="brand-mark" aria-hidden="true">AV</span>
       <p class="eyebrow">Escuela Pública Valle Verde</p>
       <h1 id="login-title">Todo el colegio,<br>en un mismo lugar.</h1>
       <p>Información académica, avisos y gestión interna en un espacio claro y seguro.</p>
       <div class="school-note"><span>●</span> Entorno de demostración · Curso lectivo 2026</div>
-    </div>
-    <div class="login-card">
+    </section>
+    <section class="login-card" aria-labelledby="form-title">
       <div class="mobile-logo"><span class="brand-mark">AV</span> Aula Clara</div>
       <p class="eyebrow">Bienvenido de nuevo</p>
-      <h2>Ingresar a la intranet</h2>
+      <h2 id="form-title">Ingresar a la intranet</h2>
       <p class="muted">Seleccioná un perfil para explorar el prototipo.</p>
       <form id="login-form">
         <label for="role-select">Perfil de acceso</label>
@@ -38,8 +38,8 @@
         <button class="primary wide" type="submit">Ingresar <span aria-hidden="true">→</span></button>
       </form>
       <p class="demo-hint"><strong>Acceso de demostración</strong><br>Usá cualquier contraseña para ingresar.</p>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <div id="app-view" class="app-shell" hidden>
     <aside class="sidebar" id="sidebar">

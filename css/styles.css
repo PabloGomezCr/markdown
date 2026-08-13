@@ -5,3 +5,4 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 .nav-item,.text-button{text-decoration:none}
 .status.pending{background:#fff0d8;color:#8a5412}
+.nav-item{text-decoration:none;width:100%}.nav-item:focus-visible{outline:3px solid #f5aa8d;outline-offset:2px}.inline-control{width:auto}

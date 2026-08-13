@@ -10,7 +10,7 @@ No requiere instalación ni dependencias. Se puede abrir `index.html` directamen
 python3 -m http.server 8080
 ```
 
-Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualquier contraseña. Los cambios se guardan únicamente en `localStorage` del navegador.
+Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualquier contraseña. El acceso redirige a `inicio.html`; administración también puede abrir `usuarios.html`. Los cambios se guardan únicamente en `localStorage` del navegador.
 
 ## Funciones incluidas
 
@@ -39,6 +39,8 @@ Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualqui
 ├── academico.html
 ├── comunicados.html
 ├── index.html
+├── inicio.html
+├── usuarios.html
 └── js/
     ├── academico.js
     ├── comunicados.js

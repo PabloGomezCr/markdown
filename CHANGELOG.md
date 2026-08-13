@@ -21,6 +21,12 @@ Todos los cambios relevantes de este proyecto se documentan aquí. El formato se
 - El módulo académico ahora vive en `academico.html` y usa `js/academico.js`.
 - El tablón de comunicados ahora vive en `comunicados.html` y usa `js/comunicados.js`.
 - La navegación conserva el perfil seleccionado mediante `sessionStorage`.
+## [Sin publicar]
+
+### Cambiado
+
+- Se separaron el acceso, el panel de inicio y la gestión de usuarios en `index.html`, `inicio.html` y `usuarios.html`.
+- Se conservó el perfil activo entre páginas y se restringió el acceso directo a usuarios al rol de administración.
 
 ## [1.0.0] — 2026-08-12
 
