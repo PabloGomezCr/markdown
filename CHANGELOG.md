@@ -2,6 +2,25 @@
 
 Todos los cambios relevantes de este proyecto se documentan aquí. El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el proyecto usa [versionado semántico](https://semver.org/lang/es/).
 
+## [1.2.0] — 2026-08-13
+
+### Agregado
+
+- Datos académicos independientes para Matemática, Español y Ciencias de 8°A.
+- Navegación accesible entre asignaturas con clic y flechas del teclado.
+- Indicador de cambios pendientes antes de guardar calificaciones.
+
+### Cambiado
+
+- El botón Guardar cambios conserva simultáneamente las notas de las tres materias.
+
+## [1.1.0] — 2026-08-12
+
+### Cambiado
+
+- El módulo académico ahora vive en `academico.html` y usa `js/academico.js`.
+- El tablón de comunicados ahora vive en `comunicados.html` y usa `js/comunicados.js`.
+- La navegación conserva el perfil seleccionado mediante `sessionStorage`.
 ## [Sin publicar]
 
 ### Cambiado

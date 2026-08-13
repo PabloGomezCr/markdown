@@ -41,6 +41,49 @@
     </section>
   </main>
 
+  <div id="app-view" class="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="logo"><span class="brand-mark">AV</span><div><strong>Aula Clara</strong><small>Valle Verde</small></div></div>
+      <nav aria-label="Navegación principal">
+        <button class="nav-item active" data-page="inicio"><span>⌂</span> Inicio</button>
+        <button class="nav-item role-admin" data-page="usuarios"><span>♙</span> Usuarios</button>
+        <a class="nav-item" href="academico.html"><span>▤</span> Académico</a>
+        <a class="nav-item" href="comunicados.html"><span>◇</span> Comunicados <b class="badge">3</b></a>
+      </nav>
+      <div class="sidebar-foot"><small>Centro educativo público</small><strong>Curso lectivo 2026</strong><span>Versión 1.0.0</span></div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <button id="menu-button" class="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <div class="crumb"><span>Intranet</span> / <strong id="current-page">Inicio</strong></div>
+        <div class="top-actions"><button class="notification" aria-label="3 notificaciones">♢<b>3</b></button><div class="user-chip"><span id="avatar">AR</span><div><strong id="user-name">Ana Rodríguez</strong><small id="user-role">Administración</small></div></div><button id="logout" class="logout" title="Cerrar sesión" aria-label="Cerrar sesión">↪</button></div>
+      </header>
+
+      <main id="contenido" tabindex="-1">
+        <section id="page-inicio" class="page active">
+          <div class="welcome panel dark">
+            <div><p id="today" class="eyebrow"></p><h1>Buenos días, <span id="first-name">Ana</span>.</h1><p id="welcome-copy">Este es el resumen de la institución para hoy.</p></div>
+            <div class="school-seal" aria-hidden="true">✦<small>Valle Verde<br>1987</small></div>
+          </div>
+          <div class="stats" id="stats"></div>
+          <div class="dashboard-grid">
+            <section class="panel"><div class="section-head"><div><p class="eyebrow">Esta semana</p><h2>Próximas actividades</h2></div><a class="text-button" href="academico.html">Ver calendario →</a></div><div id="activities"></div></section>
+            <section class="panel"><div class="section-head"><div><p class="eyebrow">Centro educativo</p><h2>Comunicados recientes</h2></div><a class="text-button" href="comunicados.html">Ver todos →</a></div><div id="recent-posts"></div></section>
+          </div>
+        </section>
+
+        <section id="page-usuarios" class="page">
+          <div class="page-title"><div><p class="eyebrow">Administración</p><h1>Gestión de usuarios</h1><p>Personas con acceso a la intranet.</p></div><button class="primary" id="new-user">+ Nueva persona</button></div>
+          <section class="panel table-panel"><div class="filters"><label class="search"><span>⌕</span><input id="user-search" type="search" placeholder="Buscar por nombre o correo" aria-label="Buscar usuarios"></label><select id="role-filter" aria-label="Filtrar por perfil"><option value="all">Todos los perfiles</option><option value="Administración">Administración</option><option value="Docente">Docente</option><option value="Estudiante / familia">Estudiante / familia</option></select></div><div class="table-wrap"><table><thead><tr><th>Persona</th><th>Perfil</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="users-body"></tbody></table></div></section>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <dialog id="modal"><form method="dialog" id="modal-form"><div class="modal-head"><div><p class="eyebrow" id="modal-eyebrow"></p><h2 id="modal-title"></h2></div><button class="icon-button" value="cancel" aria-label="Cerrar">×</button></div><div id="modal-fields"></div><div class="modal-actions"><button value="cancel" class="secondary">Cancelar</button><button value="default" id="modal-submit" class="primary">Guardar</button></div></form></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
   <script src="js/app.js"></script>
 </body>
 </html>
