@@ -140,10 +140,6 @@ $('#menu-button').addEventListener('click', () => {
   const open = $('#sidebar').classList.toggle('open');
   $('#menu-button').setAttribute('aria-expanded', String(open));
 });
-$('#logout').addEventListener('click', () => {
-  sessionStorage.removeItem('aulaclara-session');
-  location.href = 'index.html';
-});
 window.addEventListener('beforeunload', event => {
   if (!hasUnsavedChanges) return;
   event.preventDefault();

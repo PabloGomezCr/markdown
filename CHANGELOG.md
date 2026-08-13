@@ -9,9 +9,17 @@ Todos los cambios relevantes de este proyecto se documentan aquí. El formato se
 - Se conectó la navegación entre Inicio, Usuarios, Académico y Comunicados después de integrar sus páginas independientes.
 - Se unificó la clave de sesión usada por todos los módulos y se redirigen al acceso las visitas sin una sesión válida.
 - Se eliminó de `index.html` el contenido residual de la antigua aplicación de una sola página.
+- Se retiró el indicador de notificaciones sin funcionalidad ubicado junto al perfil activo.
+
+### Agregado
+
+- Diálogo de confirmación con opciones para cancelar o cerrar la sesión en todos los módulos.
+- Buscador global de páginas, contenido y fechas en las páginas autenticadas.
+- Calendario modal con alta, edición y eliminación de actividades para administración y docentes.
 
 ### Cambiado
 
+- Los indicadores y elementos de Próximas actividades y Comunicados ahora enlazan directamente con sus módulos.
 - Se separaron el acceso, el panel de inicio y la gestión de usuarios en `index.html`, `inicio.html` y `usuarios.html`.
 - Se conservó el perfil activo entre páginas y se restringió el acceso directo a Usuarios al rol de administración.
 

@@ -26,6 +26,8 @@ Construir un prototipo de intranet para una institución educativa pública que 
 | RF-08 | Permitir a docentes y administración crear comunicados | Alta | Implementado |
 | RF-09 | Permitir a todos los perfiles consultar comunicados | Alta | Implementado |
 | RF-10 | Conservar cambios locales después de recargar la página | Media | Implementado con `localStorage` |
+| RF-11 | Buscar páginas y contenido por palabras o fechas | Media | Implementado |
+| RF-12 | Consultar actividades y permitir su gestión a administración y docentes | Media | Implementado |
 
 > **Nota:** la “baja” se modela como estado inactivo para conservar trazabilidad y evitar eliminación irreversible.
 

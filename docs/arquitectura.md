@@ -8,11 +8,6 @@ Aula Clara es una aplicación web estática con páginas separadas para el acces
 ┌──────────────────────────────────────────┐
 │ Navegador                                │
 │                                          │
-│ index.html       → inicio y usuarios      │
-│ academico.html   → notas y asistencia     │
-│ comunicados.html → avisos oficiales       │
-│ styles.css       → presentación común     │
-│ app.js y scripts por página → interacción │
 │ index.html    → acceso simulado          │
 │ inicio.html   → panel por perfil         │
 │ usuarios.html → gestión administrativa  │
@@ -29,11 +24,6 @@ Aula Clara es una aplicación web estática con páginas separadas para el acces
 
 | Archivo | Responsabilidad |
 |---|---|
-| `index.html` | Vistas de acceso, panel de inicio, gestión de usuarios y su modal |
-| `css/styles.css` | Sistema visual, layout, estados, responsive y preferencias de movimiento |
-| `js/app.js` | Acceso, panel, usuarios y navegación principal |
-| `academico.html` y `js/academico.js` | Consulta, edición y persistencia de calificaciones |
-| `comunicados.html` y `js/comunicados.js` | Consulta, creación y persistencia de comunicados |
 | `index.html` | Formulario de acceso simulado |
 | `inicio.html` | Panel e información de Inicio según el perfil activo |
 | `usuarios.html` | Formulario, filtros, tabla y modal de gestión de usuarios |
@@ -41,6 +31,8 @@ Aula Clara es una aplicación web estática con páginas separadas para el acces
 | `comunicados.html` | Consulta y publicación de comunicados según el perfil |
 | `css/styles.css` | Sistema visual, layout, estados, responsive y preferencias de movimiento |
 | `js/app.js` | Datos semilla, sesión simulada, permisos, renderizado, formularios y persistencia |
+| `js/session-ui.js` | Confirmación y ejecución compartida del cierre de sesión |
+| `js/search.js` | Búsqueda compartida de páginas, actividades y comunicados |
 
 ## Modelo de datos
 
@@ -48,6 +40,7 @@ Aula Clara es una aplicación web estática con páginas separadas para el acces
 User  = { id, name, email, role, active }
 Grade = { name, task, project, exam, attendance }
 Post  = { id, title, body, date, author, important }
+Activity = { id, date, title, detail }
 ```
 
 ## Control de acceso

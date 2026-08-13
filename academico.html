@@ -10,7 +10,7 @@
       <div class="sidebar-foot"><small>Centro educativo público</small><strong>Curso lectivo 2026</strong><span>Versión 1.1.0</span></div>
     </aside>
     <div class="workspace">
-      <header class="topbar"><button id="menu-button" class="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button><div class="crumb"><span>Intranet</span> / <strong>Académico</strong></div><div class="top-actions"><div class="user-chip"><span id="avatar">AR</span><div><strong id="user-name">Ana Rodríguez</strong><small id="user-role">Administración</small></div></div><button id="logout" class="logout" title="Cerrar sesión" aria-label="Cerrar sesión">↪</button></div></header>
+      <header class="topbar"><button id="menu-button" class="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button><div class="crumb"><span>Intranet</span> / <strong>Académico</strong></div><div class="global-search"><label class="sr-only" for="site-search">Buscar en la intranet</label><input id="site-search" type="search" placeholder="Buscar página, palabra o fecha" autocomplete="off"><div id="search-results" class="search-results" hidden></div></div><div class="top-actions"><div class="user-chip"><span id="avatar">AR</span><div><strong id="user-name">Ana Rodríguez</strong><small id="user-role">Administración</small></div></div><button id="logout" class="logout" title="Cerrar sesión" aria-label="Cerrar sesión">↪</button></div></header>
       <main id="contenido" tabindex="-1"><section class="page active">
         <div class="page-title"><div><p class="eyebrow">Seguimiento</p><h1>Módulo académico</h1><p id="academic-copy">Calificaciones y asistencia del curso.</p></div><button class="primary teacher-admin" id="save-grades">Guardar cambios</button></div>
         <div class="subject-tabs" role="tablist" aria-label="Asignaturas"><button id="tab-matematica" class="active" role="tab" aria-selected="true" aria-controls="grades-panel" data-subject="matematica">Matemática 8°A</button><button id="tab-espanol" role="tab" aria-selected="false" aria-controls="grades-panel" data-subject="espanol">Español 8°A</button><button id="tab-ciencias" role="tab" aria-selected="false" aria-controls="grades-panel" data-subject="ciencias">Ciencias 8°A</button></div>
@@ -18,5 +18,5 @@
       </section></main>
     </div>
   </div>
-  <div id="toast" role="status" aria-live="polite"></div><script src="js/academico.js"></script>
+  <div id="toast" role="status" aria-live="polite"></div><script src="js/session-ui.js"></script><script src="js/search.js"></script><script src="js/academico.js"></script>
 </body></html>

@@ -15,11 +15,14 @@ Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualqui
 ## Funciones incluidas
 
 - Inicio de sesión simulado para administración, docentes y estudiantes/familias.
+- Confirmación antes de cerrar la sesión activa.
 - Consulta de contenido diferenciada por perfil.
 - Alta y edición de usuarios para administración.
 - Registro de calificaciones para administración y docentes.
 - Consulta individual de notas para estudiante/familia.
 - Creación y consulta de comunicados.
+- Calendario de actividades con alta, edición y eliminación para administración y docentes.
+- Búsqueda global de páginas y contenido por palabras o fechas.
 - Diseño adaptable, navegación por teclado, foco visible y soporte para movimiento reducido.
 
 ## Estructura
@@ -44,6 +47,8 @@ Luego visite `http://localhost:8080`. Seleccione un perfil e ingrese con cualqui
 └── js/
     ├── academico.js
     ├── comunicados.js
+    ├── search.js
+    ├── session-ui.js
     └── app.js
 ```
 
