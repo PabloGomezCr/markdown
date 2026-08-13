@@ -1,19 +1,467 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Tablón de comunicados de Aula Clara"><title>Comunicados | Aula Clara</title><link rel="stylesheet" href="css/styles.css"></head>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Tablón de comunicados de Aula Clara"
+  >
+
+  <title>Comunicados | Aula Clara</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
 <body data-page="comunicados">
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <a class="skip-link" href="#contenido">
+    Saltar al contenido
+  </a>
+
   <div class="app-shell">
+
+    <!-- SIDEBAR -->
+
     <aside class="sidebar" id="sidebar">
-      <div class="logo"><span class="brand-mark">AV</span><div><strong>Aula Clara</strong><small>Valle Verde</small></div></div>
-      <nav aria-label="Navegación principal"><a class="nav-item" href="inicio.html"><span>⌂</span> Inicio</a><a class="nav-item role-admin" href="usuarios.html"><span>♙</span> Usuarios</a><a class="nav-item" href="academico.html"><span>▤</span> Académico</a><a class="nav-item active" href="comunicados.html" aria-current="page"><span>◇</span> Comunicados <b class="badge">3</b></a></nav>
-      <div class="sidebar-foot"><small>Centro educativo público</small><strong>Curso lectivo 2026</strong><span>Versión 1.1.0</span></div>
+
+      <div class="logo">
+
+        <span class="brand-mark">
+          AV
+        </span>
+
+        <div>
+          <strong>Aula Clara</strong>
+          <small>Valle Verde</small>
+        </div>
+
+      </div>
+
+      <nav aria-label="Navegación principal">
+
+        <a class="nav-item" href="inicio.html">
+          <span>⌂</span>
+          Inicio
+        </a>
+
+        <a
+          class="nav-item role-admin"
+          href="usuarios.html"
+        >
+          <span>♙</span>
+          Usuarios
+        </a>
+
+        <a
+          class="nav-item"
+          href="academico.html"
+        >
+          <span>▤</span>
+          Académico
+        </a>
+
+        <a
+          class="nav-item active"
+          href="comunicados.html"
+          aria-current="page"
+        >
+          <span>◇</span>
+
+          Comunicados
+
+          <b
+            class="badge"
+            id="post-count"
+          >
+            0
+          </b>
+
+        </a>
+
+      </nav>
+
+      <div class="sidebar-foot">
+
+        <small>
+          Centro educativo público
+        </small>
+
+        <strong>
+          Curso lectivo 2026
+        </strong>
+
+        <span>
+          Versión 1.1.0
+        </span>
+
+      </div>
+
     </aside>
+
+
+    <!-- CONTENIDO -->
+
     <div class="workspace">
-      <header class="topbar"><button id="menu-button" class="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button><div class="crumb"><span>Intranet</span> / <strong>Comunicados</strong></div><div class="top-actions"><div class="user-chip"><span id="avatar">AR</span><div><strong id="user-name">Ana Rodríguez</strong><small id="user-role">Administración</small></div></div><button id="logout" class="logout" title="Cerrar sesión" aria-label="Cerrar sesión">↪</button></div></header>
-      <main id="contenido" tabindex="-1"><section class="page active"><div class="page-title"><div><p class="eyebrow">Información oficial</p><h1>Tablón de comunicados</h1><p>Avisos y circulares de la institución.</p></div><button class="primary teacher-admin" id="new-post">+ Nuevo comunicado</button></div><div id="posts-list" class="posts-grid"></div></section></main>
+
+      <header class="topbar">
+
+        <button
+          id="menu-button"
+          class="menu-button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+        <div class="crumb">
+
+          <span>
+            Intranet
+          </span>
+
+          /
+
+          <strong>
+            Comunicados
+          </strong>
+
+        </div>
+
+        <div class="top-actions">
+
+          <div class="user-chip">
+
+            <span id="avatar">
+              AR
+            </span>
+
+            <div>
+
+              <strong id="user-name">
+                Ana Rodríguez
+              </strong>
+
+              <small id="user-role">
+                Administración
+              </small>
+
+            </div>
+
+          </div>
+
+          <button
+            id="logout"
+            class="logout"
+            title="Cerrar sesión"
+            aria-label="Cerrar sesión"
+          >
+            ↪
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <main
+        id="contenido"
+        tabindex="-1"
+      >
+
+        <section class="page active">
+
+          <!-- TÍTULO -->
+
+          <div class="page-title">
+
+            <div>
+
+              <p class="eyebrow">
+                Información oficial
+              </p>
+
+              <h1>
+                Tablón de comunicados
+              </h1>
+
+              <p>
+                Avisos y circulares de la institución.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              class="primary teacher-admin"
+              id="new-post"
+            >
+              + Nuevo comunicado
+            </button>
+
+          </div>
+
+
+          <!-- FILTROS -->
+
+          <div class="filters-bar">
+
+            <input
+              type="search"
+              id="search-posts"
+              placeholder="Buscar comunicado..."
+              aria-label="Buscar comunicado"
+            >
+
+            <input
+              type="date"
+              id="filter-date"
+              aria-label="Filtrar por fecha"
+            >
+
+            <select
+              id="filter-important"
+              aria-label="Filtrar por tipo"
+            >
+
+              <option value="all">
+                Todos
+              </option>
+
+              <option value="important">
+                Importantes
+              </option>
+
+              <option value="normal">
+                Comunicados
+              </option>
+
+            </select>
+
+            <select
+              id="filter-order"
+              aria-label="Ordenar comunicados"
+            >
+
+              <option value="newest">
+                Más recientes
+              </option>
+
+              <option value="oldest">
+                Más antiguos
+              </option>
+
+              <option value="az">
+                A - Z
+              </option>
+
+              <option value="za">
+                Z - A
+              </option>
+
+            </select>
+
+            <button
+              type="button"
+              class="secondary teacher-admin"
+              id="undo-delete"
+              hidden
+            >
+              ↶ Deshacer
+            </button>
+
+            <button
+              type="button"
+              class="secondary"
+              id="clear-filters"
+            >
+              Limpiar
+            </button>
+
+          </div>
+
+
+          <!-- COMUNICADOS -->
+
+          <div
+            id="posts-list"
+            class="posts-grid"
+          ></div>
+
+        </section>
+
+      </main>
+
     </div>
+
   </div>
-  <dialog id="modal"><form method="dialog" id="modal-form"><div class="modal-head"><div><p class="eyebrow">Publicación oficial</p><h2>Nuevo comunicado</h2></div><button class="icon-button" value="cancel" aria-label="Cerrar">×</button></div><div><label for="post-title">Título</label><input id="post-title" required><label for="post-body">Mensaje</label><textarea id="post-body" required></textarea><label><input id="post-important" type="checkbox" style="width:auto"> Marcar como importante</label></div><div class="modal-actions"><button value="cancel" class="secondary">Cancelar</button><button value="default" id="publish-post" class="primary">Publicar</button></div></form></dialog>
-  <div id="toast" role="status" aria-live="polite"></div><script src="js/comunicados.js"></script>
-</body></html>
+
+
+  <!-- MODAL NUEVO / EDITAR -->
+
+  <dialog id="modal">
+
+    <form id="modal-form">
+
+      <div class="modal-head">
+
+        <div>
+
+          <p
+            class="eyebrow"
+            id="modal-eyebrow"
+          >
+            Publicación oficial
+          </p>
+
+          <h2 id="modal-title">
+            Nuevo comunicado
+          </h2>
+
+        </div>
+
+        <button
+          type="button"
+          class="icon-button"
+          id="close-modal"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div>
+
+        <label for="post-title">
+          Título
+        </label>
+
+        <input
+          id="post-title"
+          required
+        >
+
+        <label for="post-body">
+          Mensaje
+        </label>
+
+        <textarea
+          id="post-body"
+          required
+        ></textarea>
+
+        <label>
+
+          <input
+            id="post-important"
+            type="checkbox"
+            style="width:auto"
+          >
+
+          Marcar como importante
+
+        </label>
+
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          id="cancel-post"
+          class="secondary"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          id="publish-post"
+          class="primary"
+        >
+          Publicar
+        </button>
+
+      </div>
+
+    </form>
+
+  </dialog>
+
+
+  <!-- MODAL CONFIRMACIÓN -->
+
+  <dialog
+    id="delete-modal"
+    class="confirm-modal"
+  >
+
+    <div class="confirm-content">
+
+      <div class="confirm-icon">
+        !
+      </div>
+
+      <div class="confirm-text">
+
+        <p class="eyebrow">
+          Confirmar acción
+        </p>
+
+        <h2>
+          ¿Está seguro?
+        </h2>
+
+        <p>
+          ¿Desea eliminar este comunicado?
+          Esta acción se puede deshacer mientras permanezca en esta página.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="modal-actions">
+
+      <button
+        type="button"
+        id="cancel-delete"
+        class="secondary"
+      >
+        Cancelar
+      </button>
+
+      <button
+        type="button"
+        id="confirm-delete"
+        class="primary"
+      >
+        Aceptar
+      </button>
+
+    </div>
+
+  </dialog>
+
+
+  <!-- NOTIFICACIÓN -->
+
+  <div
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="js/comunicados.js"></script>
+
+</body>
+
+</html>

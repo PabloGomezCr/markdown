@@ -6,3 +6,376 @@
 .nav-item,.text-button{text-decoration:none}
 .status.pending{background:#fff0d8;color:#8a5412}
 .nav-item{text-decoration:none;width:100%}.nav-item:focus-visible{outline:3px solid #f5aa8d;outline-offset:2px}.inline-control{width:auto}
+
+/* ========================================
+   BARRA DE FILTROS - COMUNICADOS
+======================================== */
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+
+.filters-bar input,
+.filters-bar select {
+  height: 42px;
+
+  margin: 0;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  line-height: normal;
+}
+
+
+.filters-bar #search-posts {
+  flex: 1;
+
+  min-width: 220px;
+}
+
+
+.filters-bar #filter-date {
+  width: 165px;
+  min-width: 165px;
+}
+
+
+.filters-bar #filter-important {
+  width: 165px;
+  min-width: 165px;
+
+  padding-left: 12px;
+  padding-right: 32px;
+}
+
+
+.filters-bar #filter-order {
+  width: 185px;
+  min-width: 185px;
+
+  padding-left: 12px;
+  padding-right: 32px;
+}
+
+
+.filters-bar #clear-filters,
+.filters-bar #undo-delete {
+  height: 42px;
+
+  margin: 0;
+
+  padding: 0 18px;
+
+  white-space: nowrap;
+}
+
+
+.filters-bar select {
+  display: block;
+
+  min-height: 42px;
+
+  line-height: 42px;
+
+  vertical-align: middle;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   BOTONES EDITAR / ELIMINAR
+======================================== */
+
+.post-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  padding-top: 12px;
+}
+
+
+.post-actions button {
+  min-height: 36px;
+
+  padding: 0 14px;
+
+  font-size: 13px;
+}
+
+
+/* ========================================
+   SIN RESULTADOS
+======================================== */
+
+.empty-state {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+
+.empty-state p {
+  margin-bottom: 0;
+}
+
+
+/* ========================================
+   MODAL CONFIRMACIÓN
+======================================== */
+
+.confirm-modal {
+  width: min(430px, calc(100% - 32px));
+
+  padding: 0;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  border-radius: 16px;
+
+  background:
+    var(--surface, #ffffff);
+
+  color: inherit;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.30);
+
+  overflow: hidden;
+}
+
+
+/* OSCURECE EL RESTO DE LA PÁGINA */
+
+.confirm-modal::backdrop {
+  background:
+    rgba(0, 0, 0, 0.48);
+
+  backdrop-filter:
+    blur(2px);
+}
+
+
+/* PARTE SUPERIOR */
+
+.confirm-content {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  padding: 28px;
+}
+
+
+/* ICONO */
+
+.confirm-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 46px;
+  height: 46px;
+
+  border: 2px solid currentColor;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  opacity: 0.75;
+}
+
+
+/* TEXTO */
+
+.confirm-text {
+  flex: 1;
+}
+
+
+.confirm-text .eyebrow {
+  margin-bottom: 6px;
+}
+
+
+.confirm-text h2 {
+  margin: 0 0 10px;
+
+  font-size: 22px;
+}
+
+
+.confirm-text p:last-child {
+  margin: 0;
+
+  line-height: 1.5;
+
+  opacity: 0.75;
+}
+
+
+/* ZONA DE BOTONES */
+
+.confirm-modal .modal-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 18px 28px;
+
+  border-top:
+    1px solid rgba(0, 0, 0, 0.10);
+
+  background:
+    rgba(0, 0, 0, 0.025);
+}
+
+
+.confirm-modal .modal-actions button {
+  min-width: 105px;
+}
+
+
+/* ========================================
+   ANIMACIÓN DEL MODAL
+======================================== */
+
+.confirm-modal[open] {
+  animation:
+    abrirConfirmacion 0.18s ease-out;
+}
+
+
+@keyframes abrirConfirmacion {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.94)
+      translateY(8px);
+  }
+
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 950px) {
+
+  .filters-bar {
+    flex-wrap: wrap;
+  }
+
+
+  .filters-bar #search-posts {
+    flex: 1 1 100%;
+
+    width: 100%;
+  }
+
+
+  .filters-bar #filter-date,
+  .filters-bar #filter-important,
+  .filters-bar #filter-order {
+    flex: 1;
+
+    width: auto;
+
+    min-width: 150px;
+  }
+
+
+  .filters-bar #clear-filters,
+.filters-bar #undo-delete {
+    flex-shrink: 0;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .filters-bar {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .filters-bar #search-posts,
+  .filters-bar #filter-date,
+  .filters-bar #filter-important,
+  .filters-bar #filter-order,
+  .filters-bar #clear-filters,
+.filters-bar #undo-delete {
+    width: 100%;
+
+    min-width: 100%;
+  }
+
+
+  .post-actions {
+    flex-wrap: wrap;
+  }
+
+
+  .confirm-modal {
+    width:
+      calc(100% - 30px);
+  }
+
+
+  .confirm-content {
+    padding: 22px;
+  }
+
+
+  .confirm-modal .modal-actions {
+    padding: 16px 22px;
+  }
+
+
+  .confirm-modal .modal-actions button {
+    flex: 1;
+  }
+
+}
