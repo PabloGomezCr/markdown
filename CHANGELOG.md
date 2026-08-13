@@ -2,6 +2,13 @@
 
 Todos los cambios relevantes de este proyecto se documentan aquí. El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el proyecto usa [versionado semántico](https://semver.org/lang/es/).
 
+## [Sin publicar]
+
+### Cambiado
+
+- Se separaron el acceso, el panel de inicio y la gestión de usuarios en `index.html`, `inicio.html` y `usuarios.html`.
+- Se conservó el perfil activo entre páginas y se restringió el acceso directo a usuarios al rol de administración.
+
 ## [1.0.0] — 2026-08-12
 
 ### Agregado
